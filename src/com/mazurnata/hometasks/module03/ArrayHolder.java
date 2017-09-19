@@ -17,10 +17,12 @@ public class ArrayHolder {
         countTheNumberFive(arrayInt);
         sortArray(arrayInt);
 
+        //task 3 part 2
         findMaxCountRepeat(arrayInt);
         findMinCountRepeat(arrayInt);
 
-
+        //task 3 part 3
+        readingArrayWithoutFixedLength();
     }
 
     public void addSizeAndFillArray() {
@@ -60,7 +62,7 @@ public class ArrayHolder {
         System.out.println("Max element in arrayInt: " + max);
     }
 
-    private int countTheNumberFive(int[] arrayInt) {
+    private void countTheNumberFive(int[] arrayInt) {
         System.out.println("Let's count the number of repetitions of the number 5");
         int countRepeat = 0;
 
@@ -70,12 +72,12 @@ public class ArrayHolder {
             }
         }
         System.out.println("Count the number of 5 is: " + countRepeat);
-        return countRepeat;
     }
 
     private void sortArray(int[] arrayInt) {
         Arrays.sort(arrayInt);
         System.out.println("Sorted array:" + Arrays.toString(arrayInt));
+        System.out.println();
     }
 
     //task 3 part 2
@@ -117,8 +119,21 @@ public class ArrayHolder {
             }
         }
         System.out.println("Min number of repetitions of numbers in an array: " + minRepeat);
+        System.out.println();
     }
 
     //task 3 part 3
+    private void readingArrayWithoutFixedLength() {
+        System.out.println("Please enter the size of the new array:");
+        int[] array = new int[scanner.nextInt()];
+        int count = 0;
+        for (int i = 0; i <array.length ; i++) {
+            System.out.print("Enter number " + (count + 1) + ": ");
+            array[count] = Integer.parseInt(scanner.next());
+            count++;
+        }
+        System.out.println();
+        System.out.println("New array:" + Arrays.toString(array));
+    }
 
 }
