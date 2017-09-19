@@ -10,13 +10,16 @@ public class ArrayHolder {
 
 
     public void start() {
-
         System.out.println("Hello! Please enter the size of the array!");
         addSizeAndFillArray();
         findMinElementOfArray(arrayInt);
         findMaxElementOfArray(arrayInt);
         countTheNumberFive(arrayInt);
         sortArray(arrayInt);
+
+        findMaxCountRepeat(arrayInt);
+        findMinCountRepeat(arrayInt);
+
 
     }
 
@@ -74,4 +77,48 @@ public class ArrayHolder {
         Arrays.sort(arrayInt);
         System.out.println("Sorted array:" + Arrays.toString(arrayInt));
     }
+
+    //task 3 part 2
+    private static void findMaxCountRepeat(int[] arrayInt) {
+        int maxRepeat = 0;
+        int repeatElement;
+        for (int element : arrayInt) {
+            repeatElement = 0;
+            for (int i = 0; i < arrayInt.length; i++) {
+                if (element == arrayInt[i]) {
+                    repeatElement++;
+                }
+            }
+            if (repeatElement > 1) {
+                if (repeatElement > maxRepeat) {
+                    maxRepeat = repeatElement;
+                }
+            }
+        }
+        System.out.println("Max number of repetitions of numbers in an array: " + maxRepeat);
+    }
+
+    public static void findMinCountRepeat(int[] arrayInt) {
+        int minRepeat = 0;
+        int repeatElement;
+        for (int element : arrayInt) {
+            repeatElement = 0;
+            for (int i = 0; i < arrayInt.length; i++) {
+                if (element == arrayInt[i]) {
+                    repeatElement++;
+                }
+            }
+            if (repeatElement > 1) {
+                if (minRepeat == 0) {
+                    minRepeat = repeatElement;
+                } else if (minRepeat > repeatElement) {
+                    minRepeat = repeatElement;
+                }
+            }
+        }
+        System.out.println("Min number of repetitions of numbers in an array: " + minRepeat);
+    }
+
+    //task 3 part 3
+
 }
