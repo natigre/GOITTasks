@@ -8,7 +8,6 @@ public class ArrayHolder {
     int[] arrayInt;
     int count = 0;
 
-
     public void start() {
         System.out.println("Hello! Please enter the size of the array!");
         addSizeAndFillArray();
@@ -124,16 +123,22 @@ public class ArrayHolder {
 
     //task 3 part 3
     private void readingArrayWithoutFixedLength() {
-        System.out.println("Please enter the size of the new array:");
-        int[] array = new int[scanner.nextInt()];
-        int count = 0;
-        for (int i = 0; i <array.length ; i++) {
-            System.out.print("Enter number " + (count + 1) + ": ");
-            array[count] = Integer.parseInt(scanner.next());
-            count++;
-        }
-        System.out.println();
-        System.out.println("New array:" + Arrays.toString(array));
-    }
+        System.out.println("Please enter the elements of the new array:");
 
+//        int size = Integer.parseInt(scanner.next());
+//        int[] array = new int[size];
+//
+//        for (int i = 0; i < size; i++) {
+//            array[i] = Integer.parseInt(scanner.next());
+//        }
+        Scanner scanner = new Scanner(System.in);
+        String line = scanner.nextLine();
+        String[] numbers = line.split(" ");
+
+        int[] realNumbers = new int[numbers.length];
+        for (int i = 0; i < numbers.length; i++) {
+            realNumbers[i] = Integer.parseInt(numbers[i]);
+        }
+        System.out.print("New array:" + Arrays.toString(numbers));
+    }
 }
