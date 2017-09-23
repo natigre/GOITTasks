@@ -4,7 +4,6 @@ package com.mazurnata.practice.module4.practiceOff;
 Задача на рекурсию.
 Даны два целых числа A и В (каждое в отдельной строке).
 Выведите все числа от A до B включительно, в порядке возрастания
-
  */
 public class Task03 {
     public static void countFromAtoB(int a, int b) {

@@ -73,7 +73,6 @@ public class Task00 {
     public static void main(String[] args) {
         int[] array = new int[]{1, 4, 6, 3, 7, 8, 2, 5, 9};
         System.out.println("Array: " + Arrays.toString(array));
-
         System.out.println("Minimum: " + getMin(array));
         System.out.println("Maximum: " + getMax(array));
         System.out.println("Arithmetic mean (rounded): " + getArithmeticMean(array));

@@ -41,6 +41,5 @@ public class Task03AnotherExample {
         writeNumbersBetween2(2, 5);
         writeNumbersBetween2(7, 7);
         writeNumbersBetween2(7, -13);
-
     }
 }

@@ -22,6 +22,5 @@ public class Task02 {
         System.out.println("power = " + power(2, 3));
         System.out.println("Check power= " + Math.pow(2, 3));
         System.out.println(powerRecursive(2,3));
-
     }
 }
