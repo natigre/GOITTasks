@@ -3,7 +3,7 @@ package com.mazurnata.practice.module4.practiceOff;
 public class Task03AnotherExample {
 
     //with recursion
-    private static void writeNubersBetween1(int a, int b) {
+    private static void writeNumbersBetween1(int a, int b) {
         int maxNum = (a <= b) ? b : a;
         int minNum = (maxNum == b) ? a : b;
         recursionWriteNumberBetween(minNum, maxNum);
@@ -18,7 +18,7 @@ public class Task03AnotherExample {
     }
 
     //without recursion
-    private static void writeNubersBetween2(int a, int b) {
+    private static void writeNumbersBetween2(int a, int b) {
         if (a == b) {
             System.out.println(a);
             return;
@@ -27,20 +27,20 @@ public class Task03AnotherExample {
         int minNum = (maxNum == b) ? a : b;
         if (minNum <= maxNum) {
             System.out.print(minNum + " ");
-            writeNubersBetween2(minNum + 1, maxNum);
+            writeNumbersBetween2(minNum + 1, maxNum);
         }
     }
 
     public static void main(String[] args) {
         // Вариант решения №1
-        writeNubersBetween1(2, 5);
-        writeNubersBetween1(7, 7);
-        writeNubersBetween1(7, -13);
+        writeNumbersBetween1(2, 5);
+        writeNumbersBetween1(7, 7);
+        writeNumbersBetween1(7, -13);
 
         // Вариант решения №2
-        writeNubersBetween2(2, 5);
-        writeNubersBetween2(7, 7);
-        writeNubersBetween2(7, -13);
+        writeNumbersBetween2(2, 5);
+        writeNumbersBetween2(7, 7);
+        writeNumbersBetween2(7, -13);
 
     }
 }
