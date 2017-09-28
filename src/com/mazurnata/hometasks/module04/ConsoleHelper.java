@@ -34,10 +34,12 @@ public class ConsoleHelper {
                     int width = scanner.nextInt();
                     System.out.print("Enter height: ");
                     int height = scanner.nextInt();
-
                     drawRectangle(width, height);
                     break;
                 case 4:
+                    System.out.println("Enter the side of square: ");
+                    int side = scanner.nextInt();
+                    drawSquare(side);
                     break;
                 case 5:
                     break;
@@ -86,14 +88,25 @@ public class ConsoleHelper {
         for (int i = 0; i < height; i++) {
             String line = "";
             for (int j = 0; j < width; j++) {
-                line += "+";
+                line += "+ ";
             }
             result += line + "\n";
         }
         System.out.println(result);
         return result;
     }
+
+    public static void drawSquare(int side) {
+        for (int i = 0; i < side; i++) {
+            for (int j = 0; j < side; j++) {
+                System.out.print("+ ");
+            }
+            System.out.println();
+        }
+    }
 }
+
+
 
 
 
