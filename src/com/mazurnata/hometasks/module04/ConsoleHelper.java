@@ -128,7 +128,7 @@ public class ConsoleHelper {
                 return;
             }
             if (height > 1) {
-                System.out.println();
+                System.out.print("+ ");
                 drawRectangleWithRecursion(height - 1, width);
             }
         }
