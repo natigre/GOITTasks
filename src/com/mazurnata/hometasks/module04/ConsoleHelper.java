@@ -34,12 +34,7 @@ public class ConsoleHelper {
                     getCaseFour();
                     break;
                 case 5:
-                    System.out.println();
-                    System.out.print("Enter width: ");
-                    int widthR = scanner.nextInt();
-                    System.out.print("Enter height: ");
-                    int heightR = scanner.nextInt();
-                    drawRectangleWithRecursion(widthR, heightR);
+                    getCaseFive();
                     break;
                 case 6:
                     getCaseSix();
@@ -137,6 +132,14 @@ public class ConsoleHelper {
                 drawRectangleWithRecursion(height - 1, width);
             }
         }
+    }
+
+    public void getCaseFive() {
+        System.out.print("Enter width: ");
+        int widthR = scanner.nextInt();
+        System.out.print("Enter height: ");
+        int heightR = scanner.nextInt();
+        drawRectangleWithRecursion(widthR, heightR);
     }
 
     public static int getMax(int a, int b) {
