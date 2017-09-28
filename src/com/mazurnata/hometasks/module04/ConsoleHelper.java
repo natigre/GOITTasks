@@ -25,30 +25,30 @@ public class ConsoleHelper {
                     getReadingNumber();
                     break;
                 case 2:
-                    System.out.print("Enter integer number: ");
-                    int number = scanner.nextInt();
-                    getReadingNumberWithRecursion(number);
+                    getCaseTwo();
                     break;
                 case 3:
-                    System.out.print("Enter width: ");
-                    int width = scanner.nextInt();
-                    System.out.print("Enter height: ");
-                    int height = scanner.nextInt();
-                    drawRectangle(width, height);
+                    getCaseThree();
                     break;
                 case 4:
-                    System.out.println("Enter the side of square: ");
-                    int side = scanner.nextInt();
-                    drawSquare(side);
+                    getCaseFour();
                     break;
                 case 5:
+                    System.out.println();
+                    System.out.print("Enter width: ");
+                    int widthR = scanner.nextInt();
+                    System.out.print("Enter height: ");
+                    int heightR = scanner.nextInt();
+                    drawRectangleWithRecursion(widthR, heightR);
                     break;
                 case 6:
+                    getCaseSix();
                     break;
                 case 0:
+                    System.out.println("Bye!");
                     break;
                 default:
-                    System.out.println("Sorry, I didn't get that...");
+                    System.out.println("Sorry. Try again!");
             }
 
         } while (result < 0 || result > 6);
@@ -83,6 +83,12 @@ public class ConsoleHelper {
         }
     }
 
+    public void getCaseTwo() {
+        System.out.print("Enter integer number: ");
+        int number = scanner.nextInt();
+        getReadingNumberWithRecursion(number);
+    }
+
     public static String drawRectangle(int width, int height) {
         String result = "";
         for (int i = 0; i < height; i++) {
@@ -96,6 +102,14 @@ public class ConsoleHelper {
         return result;
     }
 
+    public void getCaseThree() {
+        System.out.print("Enter width: ");
+        int width = scanner.nextInt();
+        System.out.print("Enter height: ");
+        int height = scanner.nextInt();
+        drawRectangle(width, height);
+    }
+
     public static void drawSquare(int side) {
         for (int i = 0; i < side; i++) {
             for (int j = 0; j < side; j++) {
@@ -103,6 +117,46 @@ public class ConsoleHelper {
             }
             System.out.println();
         }
+    }
+
+    public void getCaseFour() {
+        System.out.print("Enter the side of square: ");
+        int side = scanner.nextInt();
+        drawSquare(side);
+    }
+
+    private static void drawRectangleWithRecursion(int height, int width) {
+        if (height > 0 || width > 0) {
+            if (width > 0) {
+                System.out.print("+ ");
+                drawRectangleWithRecursion(height, width - 1);
+                return;
+            }
+            if (height > 1) {
+                System.out.println();
+                drawRectangleWithRecursion(height - 1, width);
+            }
+        }
+    }
+
+    public static int getMax(int a, int b) {
+        return a >= b ? a : b;
+    }
+
+    public static float getMax(float a, float b) {
+        return a >= b ? a : b;
+    }
+
+    public void getCaseSix() {
+        System.out.print("Enter first number: ");
+        float aFloat = scanner.nextFloat();
+        System.out.print("Enter second number: ");
+        float bFloat = scanner.nextFloat();
+        int aInt = (int)aFloat, bInt = (int)bFloat;
+
+        System.out.print("Maximum number is: ");
+        if ((aFloat % aInt == 0) && (bFloat % bInt == 0)) System.out.println(getMax(aInt, bInt));
+        else System.out.println(getMax(aFloat, bFloat));
     }
 }
 
