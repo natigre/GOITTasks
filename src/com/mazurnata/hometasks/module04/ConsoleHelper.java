@@ -26,10 +26,16 @@ public class ConsoleHelper {
                     break;
                 case 2:
                     System.out.print("Enter integer number: ");
-                    int a = scanner.nextInt();
-                    getReadingNumberWithRecursion(a);
+                    int number = scanner.nextInt();
+                    getReadingNumberWithRecursion(number);
                     break;
                 case 3:
+                    System.out.print("Enter width: ");
+                    int width = scanner.nextInt();
+                    System.out.print("Enter height: ");
+                    int height = scanner.nextInt();
+
+                    drawRectangle(width, height);
                     break;
                 case 4:
                     break;
@@ -48,36 +54,48 @@ public class ConsoleHelper {
 
     public void getReadingNumber() {
         System.out.print("Enter integer number: ");
-        int a = scanner.nextInt();
-        if (a > 0) {
-            for (int i = 0; i < a; i++) {
+        int number = scanner.nextInt();
+        if (number > 0) {
+            for (int i = 0; i < number; i++) {
                 System.out.print(i + 1 + " ");
             }
             System.out.println();
-        } else if (a == 0) {
+        } else if (number == 0) {
             System.out.println("Oh, no. It's 0");
         } else {
             System.out.println("Sorry, that number is negative.");
         }
     }
 
-    public void getReadingNumberWithRecursion(int a) {
-        if (a > 0) {
-            if (a == 1) System.out.print("1 ");
+    public void getReadingNumberWithRecursion(int number) {
+        if (number > 0) {
+            if (number == 1) System.out.print("1 ");
             else {
-                getReadingNumberWithRecursion(a - 1);
-                System.out.print(a + " ");
+                getReadingNumberWithRecursion(number - 1);
+                System.out.print(number + " ");
             }
-        } else if (a == 0) {
+        } else if (number == 0) {
             System.out.println("Oh, no. It's 0");
         } else {
             System.out.println("Sorry, that number is negative.");
         }
     }
 
-    
-
-
+    public static String drawRectangle(int width, int height) {
+        String result = "";
+        for (int i = 0; i < height; i++) {
+            String line = "";
+            for (int j = 0; j < width; j++) {
+                line += "+";
+            }
+            result += line + "\n";
+        }
+        System.out.println(result);
+        return result;
+    }
 }
+
+
+
 
 
