@@ -120,17 +120,14 @@ public class ConsoleHelper {
         drawSquare(side);
     }
 
-    private static void drawRectangleWithRecursion(int height, int width) {
-        if (height > 0 || width > 0) {
-            if (width > 0) {
-                System.out.print("+ ");
-                drawRectangleWithRecursion(height, width - 1);
-                return;
-            }
-            if (height > 1) {
-                System.out.print("+ ");
-                drawRectangleWithRecursion(height - 1, width);
-            }
+    private static void drawRectangleWithRecursion(int width, int height, int wCount, int hCount) {
+        if (height > hCount && width > wCount) {
+            System.out.print("+ ");
+            drawRectangleWithRecursion(width, height, wCount,hCount + 1);
+        }
+        if (width > wCount && height == hCount) {
+            System.out.println("");
+            drawRectangleWithRecursion(width, height,  wCount + 1, 0);
         }
     }
 
@@ -139,7 +136,7 @@ public class ConsoleHelper {
         int widthR = scanner.nextInt();
         System.out.print("Enter height: ");
         int heightR = scanner.nextInt();
-        drawRectangleWithRecursion(widthR, heightR);
+        drawRectangleWithRecursion(widthR, heightR, 0, 0);
     }
 
     public static int getMax(int a, int b) {
@@ -155,7 +152,7 @@ public class ConsoleHelper {
         float aFloat = scanner.nextFloat();
         System.out.print("Enter second number: ");
         float bFloat = scanner.nextFloat();
-        int aInt = (int)aFloat, bInt = (int)bFloat;
+        int aInt = (int) aFloat, bInt = (int) bFloat;
 
         System.out.print("Maximum number is: ");
         if ((aFloat % aInt == 0) && (bFloat % bInt == 0)) System.out.println(getMax(aInt, bInt));
