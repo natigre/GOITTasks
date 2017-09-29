@@ -123,11 +123,11 @@ public class ConsoleHelper {
     private static void drawRectangleWithRecursion(int width, int height, int wCount, int hCount) {
         if (height > hCount && width > wCount) {
             System.out.print("+ ");
-            drawRectangleWithRecursion(width, height, wCount,hCount + 1);
+            drawRectangleWithRecursion(width, height, wCount, hCount + 1);
         }
         if (width > wCount && height == hCount) {
             System.out.println("");
-            drawRectangleWithRecursion(width, height,  wCount + 1, 0);
+            drawRectangleWithRecursion(width, height, wCount + 1, 0);
         }
     }
 
