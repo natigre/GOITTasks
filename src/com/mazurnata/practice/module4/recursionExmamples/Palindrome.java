@@ -21,7 +21,6 @@ public class Palindrome {
             } else {
                 return "NO";
             }
-
         }
     }
 
