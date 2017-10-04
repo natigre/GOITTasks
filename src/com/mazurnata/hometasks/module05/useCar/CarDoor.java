@@ -39,6 +39,11 @@ public class CarDoor {
 
     public void checkConditionOfTheWindow() {
 //        isWindowOpen = !isWindowOpen;
+        if(!isWindowOpen) {
+            openWindow();
+        } else {
+            closeWindow();
+        }
     }
 
     public boolean isDoorOpen() {
