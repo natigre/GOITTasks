@@ -5,8 +5,7 @@ public class CarDoor {
     private boolean isWindowOpen; // open - true
 
     public CarDoor() {
-        this.isDoorOpen = false;
-        this.isWindowOpen = false;
+        this(false, false);
     }
 
     public CarDoor(boolean isDoorOpen, boolean isWindowOpen) {
@@ -22,8 +21,13 @@ public class CarDoor {
         this.isDoorOpen = false;
     }
 
-    public void checkConditionOfTheDoor() {  //
-        isDoorOpen = !isDoorOpen;
+    public void checkConditionOfTheDoor() {
+//        isDoorOpen = !isDoorOpen;
+        if(isDoorOpen) {
+            openDoor();
+        } else {
+            closeDoor();
+        }
     }
 
     public void openWindow() {
@@ -35,7 +39,7 @@ public class CarDoor {
     }
 
     public void checkConditionOfTheWindow() {
-        isWindowOpen = !isWindowOpen;
+//        isWindowOpen = !isWindowOpen;
     }
 
     public boolean isDoorOpen() {
