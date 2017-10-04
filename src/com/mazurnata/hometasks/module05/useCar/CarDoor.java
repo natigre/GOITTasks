@@ -1,4 +1,4 @@
-package com.mazurnata.hometasks.module05;
+package com.mazurnata.hometasks.module05.useCar;
 
 public class CarDoor {
     private boolean isDoorOpen;   // open - true
@@ -36,6 +36,14 @@ public class CarDoor {
 
     public void checkConditionOfTheWindow() {
         isWindowOpen = !isWindowOpen;
+    }
+
+    public boolean isDoorOpen() {
+        return isDoorOpen;
+    }
+
+    public boolean isWindowOpen() {
+        return isWindowOpen;
     }
 
     @Override
