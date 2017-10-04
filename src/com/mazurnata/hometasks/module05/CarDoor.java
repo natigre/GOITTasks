@@ -23,11 +23,11 @@ public class CarDoor {
     }
 
     public void checkConditionOfTheDoor() {  //
-        isDoorOpen = (isDoorOpen) ? false : true;
+        isDoorOpen = !isDoorOpen;
     }
 
     public void openWindow() {
-       this.isWindowOpen = true;
+        this.isWindowOpen = true;
     }
 
     public void closeWindow() {
@@ -35,6 +35,13 @@ public class CarDoor {
     }
 
     public void checkConditionOfTheWindow() {
-        isWindowOpen = (isWindowOpen) ? false : true;
+        isWindowOpen = !isWindowOpen;
+    }
+
+    @Override
+    public String toString() {
+        return "CarDoor " +
+                "isDoorOpen: " + isDoorOpen +
+                ", isWindowOpen: " + isWindowOpen;
     }
 }
