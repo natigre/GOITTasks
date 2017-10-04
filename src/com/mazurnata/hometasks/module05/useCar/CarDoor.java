@@ -1,8 +1,8 @@
 package com.mazurnata.hometasks.module05.useCar;
 
 public class CarDoor {
-    private boolean isDoorOpen;   // open - true
-    private boolean isWindowOpen; // open - true
+    private boolean isDoorOpen;
+    private boolean isWindowOpen;
 
     public CarDoor() {
         this(false, false);
@@ -22,8 +22,7 @@ public class CarDoor {
     }
 
     public void checkConditionOfTheDoor() {
-//        isDoorOpen = !isDoorOpen;
-        if(isDoorOpen) {
+        if(!isDoorOpen) {
             openDoor();
         } else {
             closeDoor();
