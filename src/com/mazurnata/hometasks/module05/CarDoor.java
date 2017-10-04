@@ -1,30 +1,40 @@
 package com.mazurnata.hometasks.module05;
 
 public class CarDoor {
-    private boolean door;   // open - true
-    private boolean window; // open - true
+    private boolean isDoorOpen;   // open - true
+    private boolean isWindowOpen; // open - true
 
     public CarDoor() {
-        this(true, true);
+        this.isDoorOpen = false;
+        this.isWindowOpen = false;
     }
 
-    public CarDoor(boolean door, boolean window) {
-        this.door = door;
-        this.window = window;
+    public CarDoor(boolean isDoorOpen, boolean isWindowOpen) {
+        this.isDoorOpen = isDoorOpen;
+        this.isWindowOpen = isWindowOpen;
     }
 
-    public void openDoor() { //open the door
-        this.door = true;
+    public void openDoor() { //open the isDoorOpen
+        this.isDoorOpen = true;
     }
 
-    public void closeDoor() { //close the door
-        this.door = false;
+    public void closeDoor() { //close the isDoorOpen
+        this.isDoorOpen = false;
     }
 
     public void checkConditionOfTheDoor() {  //
-        door = (door) ? false : true;
+        isDoorOpen = (isDoorOpen) ? false : true;
     }
 
-    
+    public void openWindow() {
+       this.isWindowOpen = true;
+    }
 
+    public void closeWindow() {
+        this.isWindowOpen = false;
+    }
+
+    public void checkConditionOfTheWindow() {
+        isWindowOpen = (isWindowOpen) ? false : true;
+    }
 }
