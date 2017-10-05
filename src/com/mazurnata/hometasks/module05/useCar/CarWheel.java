@@ -17,8 +17,10 @@ public class CarWheel {
     }
 
     public void eraseTheTireByPercent(double percent) {
-        if (tireCondition > 0) {
-            this.tireCondition -= tireCondition * percent / 100;
+        if (tireCondition - (tireCondition * percent / 100) > 0) {
+            this.tireCondition -= (tireCondition * percent / 100);
+        } else {
+            this.tireCondition = 0;
         }
     }
 
