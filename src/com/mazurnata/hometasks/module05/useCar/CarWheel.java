@@ -13,14 +13,19 @@ public class CarWheel {
     }
 
     public void changeTireOnNew() {
-        tireCondition = 1.0;
+        if (tireCondition >= 0 && tireCondition <= 1) {
+            tireCondition = 1.0;
+        }
+        System.out.println("It is necessary to replace the wheel with a new one");
     }
 
     public void eraseTheTireByPercent(double percent) {
         if (tireCondition - (tireCondition * percent / 100) > 0) {
-            this.tireCondition -= (tireCondition * percent / 100);
+            tireCondition -= (tireCondition * percent / 100);
+            System.out.println("Our tire is worn out on" + percent+ "% and now has a state of erasure " + tireCondition);
         } else {
-            this.tireCondition = 0;
+            tireCondition = 0;
+
         }
     }
 

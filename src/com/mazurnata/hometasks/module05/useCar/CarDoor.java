@@ -14,11 +14,13 @@ public class CarDoor {
     }
 
     public void openDoor() { //open the isDoorOpen
-        this.isDoorOpen = true;
+        isDoorOpen = true;
+        System.out.println("The door was opened.");
     }
 
     public void closeDoor() { //close the isDoorOpen
-        this.isDoorOpen = false;
+        isDoorOpen = false;
+        System.out.println("The door was closed");
     }
 
     public void checkConditionOfTheDoor() {
@@ -30,11 +32,13 @@ public class CarDoor {
     }
 
     public void openWindow() {
-        this.isWindowOpen = true;
+        isWindowOpen = true;
+        System.out.println("The window was opened.");
     }
 
     public void closeWindow() {
-        this.isWindowOpen = false;
+        isWindowOpen = false;
+        System.out.println("The window was closed.");
     }
 
     public void checkConditionOfTheWindow() {
