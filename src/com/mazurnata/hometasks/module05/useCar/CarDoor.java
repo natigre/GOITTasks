@@ -33,12 +33,12 @@ public class CarDoor {
 
     public void openWindow() {
         isWindowOpen = true;
-        System.out.println("The window was opened.");
+//        System.out.println("The window was opened.");
     }
 
     public void closeWindow() {
         isWindowOpen = false;
-        System.out.println("The window was closed.");
+//        System.out.println("The window was closed.");
     }
 
     public void checkConditionOfTheWindow() {
@@ -61,7 +61,7 @@ public class CarDoor {
     @Override
     public String toString() {
         return "CarDoor " +
-                "isDoorOpen: " + isDoorOpen +
-                ", isWindowOpen: " + isWindowOpen;
+                "door: " + isDoorOpen +
+                ", window: " + isWindowOpen;
     }
 }

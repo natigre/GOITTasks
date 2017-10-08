@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Car {
 
-    private final int dataProduce;                    //дата производства (не изменна после создания объекта)
+    private final int dataProduce;               //дата производства (не изменна после создания объекта)
     private String engineType;                   //тип двигателя
     private double maxSpeed;                     //максимальная скорость машины (если она новая)
     private double accelerationTimeTo100;        //время разгона до 100км/ч
@@ -101,23 +101,22 @@ public class Car {
     }
 
     public double getCurrentMaxSpeed(){
-        if (passengerQuantity < 0) {
-            return 0;
-        }
+//        if (passengerQuantity < 0) {
+//            return ;
+//        }
         return maxSpeed * getMinWheelCondition();
     }
 
     @Override
     public String toString() {
-        return "Car: " +
+        return "Car-> " +
                 "dataProduce: " + dataProduce +
-                ", engineType: " + engineType + '\'' +
+                ", engineType: " + engineType +
                 ", maxSpeed: " + maxSpeed +
                 ", accelerationTimeTo100: " + accelerationTimeTo100 +
                 ", passengerCapacity: " + passengerCapacity +
                 ", passengerQuantity: " + passengerQuantity +
-                ", currentSpeed: " + currentSpeed +
-                ", wheels: " + Arrays.toString(wheels) +
-                ", doors:" + Arrays.toString(doors);
+                ", currentSpeed: " + currentSpeed;
+
     }
 }
