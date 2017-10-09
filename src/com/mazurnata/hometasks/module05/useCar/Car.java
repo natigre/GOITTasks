@@ -1,7 +1,5 @@
 package com.mazurnata.hometasks.module05.useCar;
 
-import java.util.Arrays;
-
 public class Car {
 
     private final int dataProduce;               //дата производства (не изменна после создания объекта)
