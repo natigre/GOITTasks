@@ -2,18 +2,28 @@ package com.mazurnata.hometasks.module05.useCar;
 
 public class Main {
     public static void main(String[] args) {
-        CarDoor carDoor = new CarDoor();
+        CarDoor carDoor = new CarDoor(true, false);
         System.out.println(carDoor.toString());
-//        carDoor.checkConditionOfTheWindow();
+        carDoor.checkConditionOfTheWindow();
+        carDoor.checkConditionOfTheDoor();
+        System.out.println();
 
-        CarWheel carWheel = new CarWheel();
+        CarWheel carWheel = new CarWheel(0.75);
         System.out.println(carWheel.toString());
+        carWheel.eraseTheTireByPercent(0.35);
+        carWheel.changeTireOnNew();
+        System.out.println();
 
 
         Car car = new Car(2017, "gasoline", 125.1,
                 5.0, 4, 2, 90);
         System.out.println(car.toString());
-
-
+        car.changeCurrentSpeed(35.1);
+        car.addOnePassenger();
+        car.disembarkOnePassengerQuantity();
+        car.clearPassengerQuantity();
+        car.removeAllWheels();
+        car.addNewWheelToCar(3);
+        car.getCurrentMaxSpeed(0.21);
     }
 }

@@ -11,11 +11,16 @@ public class Car {
     private int passengerCapacity;               //пассажировместимость
     private int passengerQuantity;               //кол-во пасажиров внутри в данный момент
     private double currentSpeed;                 //текущая скорость
-    private CarWheel[] wheels = new CarWheel[4]; //массив колес
-    private CarDoor[] doors = new CarDoor[4];    //массив дверей
+    private int wheelCounter;                    //поточное количество колесс
+    private CarWheel[] wheels = new CarWheel[MAX_WHEELS]; //массив колес
+    private CarDoor[] doors = new CarDoor[MAX_DOORS];    //массив дверей
+    private static final int MAX_DOORS = 4;      //максимальное количество дверей
+    private static final int MAX_WHEELS = 10;     //максимальное количество колесс
 
     public Car(int dataProduce) {
         this.dataProduce = dataProduce;
+        this.setCarDoors();
+        this.setCarWheels();
     }
 
     public Car(int dataProduce, String engineType, double maxSpeed, double accelerationTimeTo100,
@@ -29,7 +34,7 @@ public class Car {
         this.currentSpeed = currentSpeed;
     }
 
-    public void changeCurrentSpeed(int newSpeed){
+    public void changeCurrentSpeed(double newSpeed) {
         currentSpeed = newSpeed;
         System.out.println("Now the current speed is: " + currentSpeed);
     }
@@ -37,86 +42,175 @@ public class Car {
     public void addOnePassenger() {
         if ((passengerQuantity + 1) <= passengerCapacity) {
             passengerQuantity++;
+            System.out.println("One passenger was put in the car. Now " + passengerQuantity + " passenger(s)");
         } else {
-            System.out.println("It is impossible to put 1 passenger. Exceeds the total number of passengers.");
+            System.out.println("It is impossible to put 1 passenger. Exceeds the total number of passengers");
         }
     }
 
     public void disembarkOnePassengerQuantity() {
-        if (passengerQuantity > 0)
+        if (passengerQuantity > 0) {
             passengerQuantity--;
-        else
-            System.out.println("It is impossible to disembark one passenger. The current number is 0.");
+            System.out.println("One passenger was disembarked from the car. Now " + passengerQuantity + " passenger(s)");
+        } else {
+            System.out.println("It is impossible to disembark one passenger. The current number is 0");
+        }
     }
 
     public void clearPassengerQuantity() {
         passengerQuantity = 0;
+        System.out.println("All passengers were disembarked from the car");
     }
 
-    public CarDoor getIndexDoor(int indexDoor) {
-        if (indexDoor < doors.length) {
-            return doors[indexDoor];
-        } else {
-            System.out.println("The index exceeds the length of the array");
-            return null;
+    void removeAllWheels() {
+        wheels = null;
+        System.out.println("All wheels were removed");
+    }
+
+    public void setCarDoors(){
+        for (int i = 0; i < MAX_DOORS; i++){
+            doors[i] = new CarDoor();
         }
+    }
+
+    public void setCarWheels(){
+        wheelCounter = 4;
+        for (int i=0; i < wheelCounter; i++){
+            wheels[i] = new CarWheel();
+        }
+    }
+
+    public CarDoor getIndexDoor(int index) {
+            if ((index >= 0) && (index <= MAX_DOORS - 1)){
+                return doors[index];
+            } else {
+                System.out.println("Doors with such an index do not exist");
+                return null;
+            }
     }
 
     public CarWheel getIndexWheel(int indexWheel) {
-        if (indexWheel < wheels.length) {
-            return  wheels[indexWheel];
+        if ((indexWheel >= 0) && (indexWheel <= wheelCounter - 1)){
+            return wheels[indexWheel];
         } else {
-            System.out.println("The index exceeds the length of the array");
+            System.out.println("Wheels with such an index do not exist");
             return null;
         }
     }
 
-    public void removeAllWheels() {
-        wheels = new CarWheel[0];
-    }
-
-    public void addNewWheelToCar(CarWheel tempWheel){
-        CarWheel[] tempWheels = new CarWheel[wheels.length + 1];
-
-        for (int i = 0; i < wheels.length; i++){
-            tempWheels[i] = wheels[i];
+    public void addNewWheelToCar(int x) {
+        if (x + wheelCounter > MAX_WHEELS) {
+            System.out.println("Unable to add" + x + "wheels. Maximum number of " + MAX_WHEELS);
+        } else {
+            for (int i = 0; i < x; i++){
+                wheels[wheelCounter + i] = new CarWheel();
+            }
+            wheelCounter += x;
         }
-        tempWheels[tempWheels.length-1] = tempWheel;
-
-        wheels = new CarWheel[tempWheels.length-1];
-        wheels = tempWheels;
     }
 
-    public double getMinWheelCondition() {
-        if (wheels.length < 1 )
+    public double getCurrentMaxSpeed(double minTWheel) {
+        if ((passengerQuantity == 0) || (wheelCounter == 0)){
             return 0;
-
-        double minCondition = wheels[0].getTireCondition();
-
-        for (int i = 0; i < wheels.length; i++){
-            if (wheels[i].getTireCondition() < minCondition)
-                minCondition = wheels[i].getTireCondition();
+        } else {
+            return maxSpeed * minTWheel;
         }
-        return minCondition;
     }
 
-    public double getCurrentMaxSpeed(){
-//        if (passengerQuantity < 0) {
-//            return ;
-//        }
-        return maxSpeed * getMinWheelCondition();
+    public int getDataProduce() {
+        return dataProduce;
+    }
+
+    public String getEngineType() {
+        return engineType;
+    }
+
+    public void setEngineType(String engineType) {
+        this.engineType = engineType;
+    }
+
+    public double getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    public void setMaxSpeed(double maxSpeed) {
+        this.maxSpeed = maxSpeed;
+    }
+
+    public double getAccelerationTimeTo100() {
+        return accelerationTimeTo100;
+    }
+
+    public void setAccelerationTimeTo100(double accelerationTimeTo100) {
+        this.accelerationTimeTo100 = accelerationTimeTo100;
+    }
+
+    public int getPassengerCapacity() {
+        return passengerCapacity;
+    }
+
+    public void setPassengerCapacity(int passengerCapacity) {
+        this.passengerCapacity = passengerCapacity;
+    }
+
+    public int getPassengerQuantity() {
+        return passengerQuantity;
+    }
+
+    public void setPassengerQuantity(int passengerQuantity) {
+        this.passengerQuantity = passengerQuantity;
+    }
+
+    public double getCurrentSpeed() {
+        return currentSpeed;
+    }
+
+    public void setCurrentSpeed(double currentSpeed) {
+        this.currentSpeed = currentSpeed;
+    }
+
+    public int getWheelCounter() {
+        return wheelCounter;
+    }
+
+    public void setWheelCounter(int wheelCounter) {
+        this.wheelCounter = wheelCounter;
+    }
+
+    public CarWheel[] getWheels() {
+        return wheels;
+    }
+
+    public void setWheels(CarWheel[] wheels) {
+        this.wheels = wheels;
+    }
+
+    public CarDoor[] getDoors() {
+        return doors;
+    }
+
+    public void setDoors(CarDoor[] doors) {
+        this.doors = doors;
+    }
+
+    public static int getMaxDoors() {
+        return MAX_DOORS;
+    }
+
+    public static int getMaxWheels() {
+        return MAX_WHEELS;
     }
 
     @Override
     public String toString() {
-        return "Car-> " +
+        return "Info about car " +
                 "dataProduce: " + dataProduce +
-                ", engineType: " + engineType +
+                ", engineType: '" + engineType + '\'' +
                 ", maxSpeed: " + maxSpeed +
                 ", accelerationTimeTo100: " + accelerationTimeTo100 +
                 ", passengerCapacity: " + passengerCapacity +
                 ", passengerQuantity: " + passengerQuantity +
-                ", currentSpeed: " + currentSpeed;
-
+                ", currentSpeed: " + currentSpeed +
+                ", wheelCounter: " + wheelCounter;
     }
 }
