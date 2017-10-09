@@ -82,6 +82,7 @@ public class Car {
 
     public CarDoor getIndexDoor(int index) {
             if ((index >= 0) && (index <= MAX_DOORS - 1)){
+                System.out.println("index is: " + doors[index]);
                 return doors[index];
             } else {
                 System.out.println("Doors with such an index do not exist");
@@ -91,6 +92,7 @@ public class Car {
 
     public CarWheel getIndexWheel(int indexWheel) {
         if ((indexWheel >= 0) && (indexWheel <= wheelCounter - 1)){
+            System.out.println("index is: " + wheels[indexWheel]);
             return wheels[indexWheel];
         } else {
             System.out.println("Wheels with such an index do not exist");
