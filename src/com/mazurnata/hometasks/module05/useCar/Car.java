@@ -15,7 +15,7 @@ public class Car {
     private CarWheel[] wheels = new CarWheel[MAX_WHEELS]; //массив колес
     private CarDoor[] doors = new CarDoor[MAX_DOORS];    //массив дверей
     private static final int MAX_DOORS = 4;      //максимальное количество дверей
-    private static final int MAX_WHEELS = 10;     //максимальное количество колесс
+    private static final int MAX_WHEELS = 4;     //максимальное количество колесс
 
     public Car(int dataProduce) {
         this.dataProduce = dataProduce;
@@ -77,6 +77,7 @@ public class Car {
         wheelCounter = 4;
         for (int i=0; i < wheelCounter; i++){
             wheels[i] = new CarWheel();
+            System.out.println();
         }
     }
 
@@ -117,6 +118,15 @@ public class Car {
         } else {
             return maxSpeed * minTWheel;
         }
+    }
+
+    public double getMinTireWheel(){
+        double result = wheels[0].getTireCondition();
+        for (int i = 0; i < wheelCounter; i++){
+            result = (wheels[i].getTireCondition() < result) ? wheels[i].getTireCondition() : result;
+        }
+        System.out.println("Result" + result);
+        return result;
     }
 
     public int getDataProduce() {

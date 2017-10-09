@@ -24,7 +24,9 @@ public class Main {
         car.clearPassengerQuantity();
         car.removeAllWheels();
 //        car.addNewWheelToCar(3);
-//        car.getCurrentMaxSpeed(0.21);
+        car.getCurrentMaxSpeed(0.21);
         car.getIndexDoor(1);
+        car.setCarDoors();
+        car.getMinTireWheel();
     }
 }
