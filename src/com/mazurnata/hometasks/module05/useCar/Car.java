@@ -9,11 +9,10 @@ public class Car {
     private int passengerCapacity;               //пассажировместимость
     private int passengerQuantity;               //кол-во пасажиров внутри в данный момент
     private double currentSpeed;                 //текущая скорость
-    private int wheelCounter;                    //поточное количество колесс
-    private CarWheel[] wheels = new CarWheel[MAX_WHEELS]; //массив колес
-    private CarDoor[] doors = new CarDoor[MAX_DOORS];    //массив дверей
-    private static final int MAX_DOORS = 4;      //максимальное количество дверей
-    private static final int MAX_WHEELS = 4;     //максимальное количество колесс
+    private int wheelCounter;                    //поточное количество колес
+    private CarWheel[] wheels = new CarWheel[4]; //массив колес
+    private CarDoor[] doors = new CarDoor[4];    //массив дверей
+
 
     public Car(int dataProduce) {
         this.dataProduce = dataProduce;
@@ -65,22 +64,20 @@ public class Car {
         System.out.println("All wheels were removed");
     }
 
-    public void setCarDoors(){
-        for (int i = 0; i < MAX_DOORS; i++){
+    public void setCarDoors(){      //инициализация массива
+        for (int i = 0; i < doors.length; i++){
             doors[i] = new CarDoor();
         }
     }
 
-    public void setCarWheels(){
-        wheelCounter = 4;
-        for (int i=0; i < wheelCounter; i++){
+    public void setCarWheels(){    //инициализация массива
+        for (int i=0; i < wheels.length; i++){
             wheels[i] = new CarWheel();
-            System.out.println();
         }
     }
 
     public CarDoor getIndexDoor(int index) {
-            if ((index >= 0) && (index <= MAX_DOORS - 1)){
+            if ((index >= 0) && (index <= doors.length - 1)){
                 System.out.println("index is: " + doors[index]);
                 return doors[index];
             } else {
@@ -100,8 +97,8 @@ public class Car {
     }
 
     public void addNewWheelToCar(int x) {
-        if (x + wheelCounter > MAX_WHEELS) {
-            System.out.println("Unable to add" + x + "wheels. Maximum number of " + MAX_WHEELS);
+        if (x + wheelCounter > wheels.length) {
+            System.out.println("Unable to add" + x + "wheels. Maximum number of " + wheels.length);
         } else {
             for (int i = 0; i < x; i++){
                 wheels[wheelCounter + i] = new CarWheel();
@@ -116,15 +113,6 @@ public class Car {
         } else {
             return maxSpeed * minTWheel;
         }
-    }
-
-    public double getMinTireWheel(){
-        double result = wheels[0].getTireCondition();
-        for (int i = 0; i < wheelCounter; i++){
-            result = (wheels[i].getTireCondition() < result) ? wheels[i].getTireCondition() : result;
-        }
-        System.out.println("Result" + result);
-        return result;
     }
 
     public int getDataProduce() {
@@ -201,14 +189,6 @@ public class Car {
 
     public void setDoors(CarDoor[] doors) {
         this.doors = doors;
-    }
-
-    public static int getMaxDoors() {
-        return MAX_DOORS;
-    }
-
-    public static int getMaxWheels() {
-        return MAX_WHEELS;
     }
 
     @Override

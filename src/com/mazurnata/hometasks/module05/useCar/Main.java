@@ -26,7 +26,7 @@ public class Main {
 //        car.addNewWheelToCar(3);
         car.getCurrentMaxSpeed(0.21);
         car.getIndexDoor(1);
-        car.setCarDoors();
-        car.getMinTireWheel();
+        car.setCarWheels();
+
     }
 }
