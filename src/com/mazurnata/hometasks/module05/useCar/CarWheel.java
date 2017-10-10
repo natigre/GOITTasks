@@ -2,10 +2,9 @@ package com.mazurnata.hometasks.module05.useCar;
 
 public class CarWheel {
 
-    private double tireCondition;
+    private double tireCondition = 1.0;
 
     public CarWheel() {
-        this(1.0);
     }
 
     public CarWheel(double tireCondition) {
