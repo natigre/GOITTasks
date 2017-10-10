@@ -78,11 +78,11 @@ public class Car {
         }
     }
 
-//    public void setCarWheels() {    //инициализация массива
-//        for (int i = 0; i < 4; i++) {
-//            wheels.add(new CarWheel());
-//        }
-//    }
+    public void setCarWheels() {    //инициализация массива
+        for (int i = 0; i < 4; i++) {
+            wheels.add(new CarWheel());
+        }
+    }
 
     public CarDoor getIndexDoor(int index) {
         if ((index >= 0) && (index <= doorCounter - 1)) {

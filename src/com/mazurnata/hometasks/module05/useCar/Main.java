@@ -23,10 +23,10 @@ public class Main {
         car.disembarkOnePassengerQuantity();
         car.clearPassengerQuantity();
         car.removeAllWheels();
-        car.addNewWheelToCar(3);
+        car.addNewWheelToCar(5);
         car.getCurrentMaxSpeed(0.21);
-        car.getIndexDoor(1);
-//        car.setCarWheels();
+        car.getIndexDoor(2);
+        car.setCarWheels();
         car.setCarDoors();
 
     }
