@@ -14,15 +14,15 @@ public class Car {
     private double currentSpeed;                 //текущая скорость
     private int wheelCounter = 4;                //поточное количество колес
     private int doorCounter = 4;                 //поточное количество дверей
-    private List<CarWheel> wheels;               //массив колес
+    private List<CarWheel> wheels = new ArrayList<>();  //массив колес
     private List<CarDoor> doors = new ArrayList<>();   //массив дверей
 
 
     public Car(int dataProduce) {
         this.dataProduce = dataProduce;
         this.setCarDoors();
-//        this.setCarWheels();
-        wheels = new ArrayList<>();
+        this.setCarWheels();
+
     }
 
     public Car(int dataProduce, String engineType, double maxSpeed, double accelerationTimeTo100,
@@ -35,8 +35,8 @@ public class Car {
         this.passengerQuantity = passengerQuantity;
         this.currentSpeed = currentSpeed;
         this.setCarDoors();
-//        this.setCarWheels();
-        wheels = new ArrayList<>();
+        this.setCarWheels();
+
     }
 
     public void changeCurrentSpeed(double newSpeed) {
