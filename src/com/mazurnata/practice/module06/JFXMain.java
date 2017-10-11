@@ -9,7 +9,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 
-public class JFXMain extends Application implements EventHandler<ActionEvent> {
+public class JFXMain extends Application {
     Button button;
 
     public static void main(String[] args) {
@@ -20,7 +20,16 @@ public class JFXMain extends Application implements EventHandler<ActionEvent> {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("First application");
         button = new Button("This is button");
-        button.setOnAction(this);   //задаем действия для кнопки
+//        button.setOnAction(new EventHandler<ActionEvent>() { //удобнее использовать вложенный анонимный класс
+//            @Override                                        //для одной кнопки
+//            public void handle(ActionEvent event) {
+//                System.out.println("joj");
+//            }
+//        });   //задаем действия для кнопки
+        button.setOnAction(e -> {
+            System.out.println("1");
+            System.out.println("2");
+        });
         StackPane layuot = new StackPane();
         layuot.getChildren().add(button);
         Scene scene = new Scene(layuot, 300, 300);
@@ -28,11 +37,11 @@ public class JFXMain extends Application implements EventHandler<ActionEvent> {
         primaryStage.show();
     }
 
-    @Override
-    public void handle(ActionEvent event) { //прописываем условия для кнопки
-        // можем прописывать несколько кнопок
-        if (event.getSource() == button) {
-            System.out.println("Ayaa");//так не делают!!
-        }
-    }
+//    @Override //для
+//    public void handle(ActionEvent event) { //прописываем условия для кнопки
+//        // можем пропис
+//        if (event.getSource() == button) {
+//            System.out.println("Ayaa");//так не делают!!
+//        }
+//    }
 }
