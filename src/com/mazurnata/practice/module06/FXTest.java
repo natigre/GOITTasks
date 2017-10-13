@@ -20,6 +20,6 @@ public class FXTest extends Application{
         Scene scene = new Scene(root);  //создаем сцену и кладем внутрь root (пустую панельку)
         primaryStage.setScene(scene);   // привязываем окно программы к нашей сцене
 
-        primaryStage.show();
+        primaryStage.show();    //отображаем окно
     }
 }
