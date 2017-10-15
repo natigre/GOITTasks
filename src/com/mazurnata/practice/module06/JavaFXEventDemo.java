@@ -51,10 +51,7 @@ public class JavaFXEventDemo extends Application {
         });
 
         //обработать события действия от кнопки Beta
-        btnBeta.setOnAction(e -> {
-            response.setText("Beta was pressed");
-            //нажата кнопка Beta
-        });
+        btnBeta.setOnAction(e -> response.setText("Beta was pressed"));
 
         //ввести метку и кнопки в граф сцены
         root.getChildren().addAll(btnAlpha, btnBeta, response);
