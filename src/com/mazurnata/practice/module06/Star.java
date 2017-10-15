@@ -39,6 +39,7 @@ public class Star extends Application{
         double ypoints[] = {85, 75, 10, 75, 85, 125,
                 190, 150, 190, 125};
         gc.strokePolygon(xpoints, ypoints, xpoints.length);
+        gc.fillPolygon(xpoints, ypoints,5);
     }
 
     public static void main(String[] args) {
