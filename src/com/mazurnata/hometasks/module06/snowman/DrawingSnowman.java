@@ -72,7 +72,7 @@ public class DrawingSnowman extends Application {
         maxRadiusOfCirclesLabel.setTranslateY(70);
 
         TextField maxRadiusOfCirclesField = new TextField();
-        maxRadiusOfCirclesField.setText("25");
+        maxRadiusOfCirclesField.setText("45");
         maxRadiusOfCirclesField.setTranslateX(160);
         maxRadiusOfCirclesField.setTranslateY(70);
 
@@ -124,17 +124,17 @@ public class DrawingSnowman extends Application {
     private void drawHeadCircles(int i) {
         if (i == 0) {
             circles[i].setTranslateY(50);
-            circles[i].setRadius(50);
+            circles[i].setRadius(35);
         } else if (i == 1) {
-            circles[i].setTranslateY(25);
+            circles[i].setTranslateY(35);
             circles[i].setTranslateX(390);
             circles[i].setRadius(5);
         } else if (i == 2) {
-            circles[i].setTranslateY(25);
+            circles[i].setTranslateY(35);
             circles[i].setTranslateX(410);
             circles[i].setRadius(5);
         } else if (i == 3) {
-            circles[i].setTranslateY(45);
+            circles[i].setTranslateY(55);
             circles[i].setTranslateX(400);
             circles[i].setRadius(7);
         }
@@ -154,11 +154,7 @@ public class DrawingSnowman extends Application {
 
     private void setColorCircle(int i) {
         Random randomValue = new Random();
-        Color color = Color.color(randomValue.nextDouble(),
-                randomValue.nextDouble(),
-                randomValue.nextDouble(),
-                0.5f);
-
+        Color color = Color.color(randomValue.nextDouble(), randomValue.nextDouble(), randomValue.nextDouble(),1f);
         circles[i].setFill(Paint.valueOf(color.toString()));
     }
 
@@ -169,21 +165,16 @@ public class DrawingSnowman extends Application {
     }
 
     private Paint randomColor(float transparency) {
-        Color color = Color.color(
-                0f,
-                0f,
-                0f,
-                transparency);
-
+        Color color = Color.color(0f,0f,0f, transparency);
         return Paint.valueOf(color.toString());
     }
 
     private void setGradient() {
         if (circles.length != 0) {
-            float transperency = 0.5f / circles.length;
+            float transperency = 1f / circles.length;
             float step = transperency;
             for (int i = 0; i < circles.length; i++) {
-                if (transperency > 1f) transperency = 1f;
+                if (transperency > 1f) transperency = 1.5f;
                 circles[i].setFill(randomColor(transperency));
                 transperency += step;
             }
