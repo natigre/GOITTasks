@@ -2,6 +2,8 @@ package com.mazurnata.hometasks.module06.snowman;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -29,22 +31,22 @@ public class DrawingSnowman extends Application {
 
         Button btnDrawCircles = new Button();
         btnDrawCircles.setText("Draw circles");
-        btnDrawCircles.setTranslateX(200);
+        btnDrawCircles.setTranslateX(20);
         btnDrawCircles.setTranslateY(100);
 
         Button btnSetColors = new Button();
         btnSetColors.setText("Paint circles");
-        btnSetColors.setTranslateX(200);
+        btnSetColors.setTranslateX(20);
         btnSetColors.setTranslateY(130);
 
         Button btnSetColorsRed = new Button();
         btnSetColorsRed.setText("Painting in red");
-        btnSetColorsRed.setTranslateX(200);
+        btnSetColorsRed.setTranslateX(20);
         btnSetColorsRed.setTranslateY(160);
 
         Button btnSetGradient = new Button();
         btnSetGradient.setText("Gradient");
-        btnSetGradient.setTranslateX(200);
+        btnSetGradient.setTranslateX(20);
         btnSetGradient.setTranslateY(190);
 
         Label numberOfCirclesLabel = new Label("Number of circles: ");
@@ -89,7 +91,7 @@ public class DrawingSnowman extends Application {
                 minRadiusOfCirclesLabel, minRadiusOfCirclesField, maxRadiusOfCirclesLabel,
                 maxRadiusOfCirclesField, btnSetColorsRed, btnSetGradient);
 
-        Scene scene = new Scene(root, 800, 500,  Color.WHITESMOKE);
+        Scene scene = new Scene(root, 700, 650);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -166,14 +168,25 @@ public class DrawingSnowman extends Application {
         }
     }
 
-    private void setGradient() {
-        Stop[] stops1 = new Stop[] { new Stop(0, Color.RED),
-                new Stop(1, Color.BLACK)};
+    private Paint randomColor(float transparency) {
+        Color color = Color.color(
+                0f,
+                0f,
+                0f,
+                transparency);
 
-        for (int i = 0; i < countOfCircles; i++) {
-            RadialGradient lg1 = new RadialGradient(0, 0, 0.5, 0.5, 0.8, true,
-                    CycleMethod.NO_CYCLE, stops1);
-            circles[i].setFill(lg1);
+        return Paint.valueOf(color.toString());
+    }
+
+    private void setGradient() {
+        if (circles.length != 0) {
+            float transperency = 0.5f / circles.length;
+            float step = transperency;
+            for (int i = 0; i < circles.length; i++) {
+                if (transperency > 1f) transperency = 1f;
+                circles[i].setFill(randomColor(transperency));
+                transperency += step;
+            }
         }
     }
 }
