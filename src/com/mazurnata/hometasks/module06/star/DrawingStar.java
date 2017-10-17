@@ -51,13 +51,13 @@ public class DrawingStar extends Application{
 
 
     private void drawStarShape(GraphicsContext gc) {
-        double innerRadius = radius / 2.5;      // Внутрений радиус
-        double startingAngle = Math.PI / 2;     // Начальный угол, верхняя точка звезды
-        double angleOfRotation = Math.PI / numberOfStarBeams;   // Угол поворота
+        double innerRadius = radius / 2.5;
+        double startingAngle = Math.PI / 2;
+        double angleOfRotation = Math.PI / numberOfStarBeams;
 
         double[] xPoints = new double[2* numberOfStarBeams];
         double[] yPoints = new double[2* numberOfStarBeams];
-        // Цикл задает координаты вершинам
+        
         for (int i = 0; i < 2 * numberOfStarBeams; i++) {
             if (i % 2 == 1){
                 xPoints[i] = centerStarX + innerRadius * Math.cos(startingAngle);
@@ -66,8 +66,8 @@ public class DrawingStar extends Application{
                 xPoints[i] = centerStarX + radius * Math.cos(startingAngle);
                 yPoints[i] = centerStarY - radius * Math.sin(startingAngle);
             }
-            startingAngle += angleOfRotation;   // Увеличиваем угол
+            startingAngle += angleOfRotation;
         }
-        gc.strokePolygon(xPoints, yPoints, xPoints.length); // Рисуем звезду
+        gc.strokePolygon(xPoints, yPoints, xPoints.length);
     }
 }
