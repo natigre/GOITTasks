@@ -57,7 +57,7 @@ public class DrawingStar extends Application{
 
         double[] xPoints = new double[2* numberOfStarBeams];
         double[] yPoints = new double[2* numberOfStarBeams];
-        
+
         for (int i = 0; i < 2 * numberOfStarBeams; i++) {
             if (i % 2 == 1){
                 xPoints[i] = centerStarX + innerRadius * Math.cos(startingAngle);
