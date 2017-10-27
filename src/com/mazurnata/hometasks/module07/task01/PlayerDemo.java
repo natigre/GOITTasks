@@ -42,10 +42,11 @@ public class PlayerDemo {
         player5.playSong(playlist5);
         player5.playAllSongs(playlist5);
         System.out.println();
-        System.out.println("player6");
+        System.out.println("Player6");
         System.out.println("Price: " + player6.getPrice());
         player6.playSong(playlist6);
         player6.playAllSongs(playlist6);
         player6.shuffle(playlist6);
+//        player6.shuffle(playlist5);
     }
 }
