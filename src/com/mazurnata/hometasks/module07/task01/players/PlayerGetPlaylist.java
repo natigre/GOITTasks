@@ -8,4 +8,14 @@ public class PlayerGetPlaylist extends PlayerModel {
         this.playlist = playlist;
     }
 
+    public void playSong(String[] playlist) {
+        super.playSong(playlist[0]);
+    }
+
+    public void playAllSongs(String[] playlist) {
+        System.out.println("Playing playlist: ");
+        for (int i = 0; i < playlist.length; i++) {
+            playSong(playlist[i]);
+        }
+    }
 }

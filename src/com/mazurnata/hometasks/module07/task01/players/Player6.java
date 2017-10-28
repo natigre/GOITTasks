@@ -2,7 +2,7 @@ package com.mazurnata.hometasks.module07.task01.players;
 
 import java.util.Random;
 
-public class Player6 extends Player3 {
+public class Player6 extends PlayerGetPlaylist {
 
     public Player6(double price, String[] playlist) {
         super(price, playlist);

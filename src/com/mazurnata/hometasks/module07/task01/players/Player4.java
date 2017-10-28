@@ -1,6 +1,6 @@
 package com.mazurnata.hometasks.module07.task01.players;
 
-public class Player4 extends Player3 {
+public class Player4 extends PlayerGetPlaylist {
 
     public Player4(double price, String[] playlist) {
         super(price, playlist);
