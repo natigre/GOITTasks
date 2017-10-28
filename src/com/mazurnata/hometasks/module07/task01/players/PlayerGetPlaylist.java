@@ -8,7 +8,4 @@ public class PlayerGetPlaylist extends PlayerModel {
         this.playlist = playlist;
     }
 
-    public PlayerGetPlaylist(double price) {
-        super(price);
-    }
 }
