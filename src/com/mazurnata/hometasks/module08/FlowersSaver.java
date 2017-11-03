@@ -7,7 +7,7 @@ public abstract class FlowersSaver {
 
     public static void save(String path, Flower[] flowers) {
         try {
-            FileWriter writer = new FileWriter(path, true);
+            FileWriter writer = new FileWriter(path, false);
 
             for(Flower flower : flowers) {
                 writer.write(flower.toString());

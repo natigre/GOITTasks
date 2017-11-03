@@ -5,10 +5,11 @@ import java.io.FileReader;
 
 public abstract class FlowersLoader {
     private static final String SEPARATOR = ";";
+    private static final String PATH = "flowers_data.txt";
 
     public static Flower[] load(String path) {
         try {
-            FileReader reader = new FileReader(path);
+            FileReader reader = new FileReader(PATH);
             BufferedReader bufferedReader = new BufferedReader(reader);
 
             String line = bufferedReader.readLine();
@@ -29,5 +30,11 @@ public abstract class FlowersLoader {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static void printFlower(Flower[] flowers) {
+        for (Flower flower : flowers) {
+            System.out.println(flower.toString());
+        }
     }
 }
