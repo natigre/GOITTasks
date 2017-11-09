@@ -90,7 +90,7 @@ public class FileWriterExample {
     public static void main(String[] args) {
         BaseAnimal[] animals = new BaseAnimal[]{
                 new Cat("Kitty", 2, 3),
-                new Snake("Snake", 12, 35, 10)
+                new Snake("Snake", 12, 25, 10)
         };
 
         saveAnimals(animals); //сохраняем животных

@@ -1,0 +1,17 @@
+    .box{
+    -fx-spacing:20;
+    -fx-background-color:#eeeeee;
+    }
+    .name{
+    -fx-font-size:200%;
+    }
+    .path{
+    -fx-background-color:white;
+    }
+    .play{
+    -fx-background-color:#4D545F;
+    -fx-font-size:200%;
+    }
+    .stop{
+    -fx-border-radius:10px;
+    -fx-background-color:red;
