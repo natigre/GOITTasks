@@ -12,6 +12,6 @@ public class HashSetDemo {
         hashSet.add("Epsilon");
         hashSet.add("Omega");
         System.out.println(hashSet);
-        
+
     }
 }
