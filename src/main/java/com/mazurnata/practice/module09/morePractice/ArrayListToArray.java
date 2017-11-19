@@ -9,7 +9,7 @@ public class ArrayListToArray {
         list.add(2);
         list.add(3);
         list.add(4);
-        System.out.println("Contents of a list array: " + list);
+        System.out.println("Content of a list array: " + list);
 
         //get common array
         Integer ia[] = new Integer[list.size()];

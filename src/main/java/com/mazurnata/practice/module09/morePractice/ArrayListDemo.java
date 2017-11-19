@@ -17,11 +17,11 @@ public class ArrayListDemo {
         al.add(1, "A2");
         System.out.println("Size of AL after adding of the element: " +
                 al.size());
-        System.out.println("Contents of a list array: " + al);
+        System.out.println("Content of a list array: " + al);
 
         al.remove("F");
         al.remove(2);
         System.out.println("Size of AL after removing of elements: " + al.size());
-        System.out.println("Contents of a list array: " + al);
+        System.out.println("Content of a list array: " + al);
     }
 }
