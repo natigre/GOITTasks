@@ -11,4 +11,12 @@ public class UserGroup {
     public int getGroupSize() {
         return users.size();
     }
+
+    @Override
+    public String toString() {
+        return "UserGroup{" +
+                "name='" + name + '\'' +
+                ", users=" + users +
+                '}';
+    }
 }

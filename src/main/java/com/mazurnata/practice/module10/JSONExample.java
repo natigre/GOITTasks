@@ -4,6 +4,11 @@ import com.alibaba.fastjson.JSON;
 import com.mazurnata.practice.module10.enumExample.Gender;
 import com.mazurnata.practice.module10.enumExample.User;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Scanner;
+
 public class JSONExample {
 
     static void simpleExample() {
@@ -28,24 +33,40 @@ public class JSONExample {
 
 
         //серелизация группы в JSON, получаем массив
-//        String json = JSON.toJSONString(group);
-        String json = JSON.toJSONString(group.users);
+        String json = JSON.toJSONString(group);
+//        String json = JSON.toJSONString(group.users);
         System.out.println(json);
         System.out.println();
     }
 
-    static void userReadExample() {
+    static void userReadExample() throws FileNotFoundException {
         System.out.println("read User from JSON example: ");
 
-        String json = "";
+        //считываем файл в одну строку
+        String json = new Scanner(new File("files/lesson10/user.json")).useDelimiter("\\Z").next();
 
-        User user = JSON.parseObject("", User.class);
+        User user = JSON.parseObject(json, User.class);
         System.out.println(json);
+        System.out.println(user);
         System.out.println();
     }
 
-    public static void main(String[] args) {
+    private static void groupReadExample() throws FileNotFoundException {
+        System.out.println("read Group from JSON example: ");
+
+        //считываем файл в одну строку
+        String json = new Scanner(new File("files/lesson10/group.json")).useDelimiter("\\Z").next();
+
+        UserGroup group = JSON.parseObject(json, UserGroup.class);
+        System.out.println(json);
+        System.out.println(group);
+        System.out.println();
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
         simpleExample();
         groupExample();
+        userReadExample();
+        groupReadExample();
     }
 }

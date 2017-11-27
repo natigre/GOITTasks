@@ -1,0 +1,21 @@
+{
+  "groupSize": 4,
+  "name": "Class A",
+  "users": [{
+    "age": 35,
+    "gender": "male",
+    "name": "Petya"
+  }, {
+    "age": 20,
+    "gender": "male",
+    "name": "Alex"
+  }, {
+    "age": 27,
+    "gender": "female",
+    "name": "Irina"
+  }, {
+    "age": 0,
+    "gender": "unknown",
+    "name": "X"
+  }]
+}

@@ -1,9 +1,10 @@
 package com.mazurnata.practice.module10.enumExample;
 
 public class User {
-    private String name;
-    private Gender gender;
-    private int age;
+    public String name;
+    public Gender gender;
+    public int age;
+
 
     public User(String name, Gender gender, int age) {
         this.name = name;
@@ -11,15 +12,12 @@ public class User {
         this.age = age;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public int getAge() {
-        return age;
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", gender=" + gender +
+                ", age=" + age +
+                '}';
     }
 }
